@@ -1,0 +1,13 @@
+.main-container {
+    margin: auto;
+    border: 2px solid;
+}
+.visual-list-container {
+    border: 2px solid;
+}
+.bar {
+    border: 2px solid;
+}
+.is-selected {
+    background-color: red;
+}
