@@ -9,12 +9,13 @@ export class BarComponent implements OnInit {
 
   number = 0;
   width = `${this.number * 10}px`;
-  selected: boolean;
+  success: boolean;
   color: string;
 
   constructor(value: number) {
     this.number = value;
-    this.selected = false;
+    this.success = false;
+    this.color = '#e97171';
   }
 
   ngOnInit() {
