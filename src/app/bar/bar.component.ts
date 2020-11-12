@@ -8,7 +8,6 @@ import { Component, OnInit } from '@angular/core';
 export class BarComponent implements OnInit {
 
   number = 0;
-  width = `${this.number * 10}px`;
   success: boolean;
   color: string;
 

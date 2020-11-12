@@ -1,8 +1,30 @@
-<div class="main-container">
+<div class="header-container">
+    <nav class="header">
+        <div class="contents-flex-box">
+            <div class="logo-container">
+                <div class="logo">
+                    <h2 class="logo-text">AlgoViz</h2>
+                </div>
+            </div>
+            <div class="size-container">
+                <div class="size">Size</div>
+                <mat-slider (input)="onSizeChange($event)" class="slider" thumbLabel [displayWith]="formatLabel" min="10" max="100" value="30"></mat-slider>
+            </div>
+            <div class="speed-container">
+                <div class="speed">Speed</div>
+                <mat-slider (input)="onSpeedChange($event)" class="slider" [displayWith]="formatLabel" min="200" max="400"></mat-slider>
+            </div>
+            <div class="list_elements-container">
+                <div class="list_elements" (click)="changeList()">Change List</div>
+            </div>
+        </div>
+    </nav>
+</div>
+<div class="sorting-container">
     <div class="visual-list-container">
         <div class="numbers" *ngFor="let bar of barList; index as i">
-            <div id="bar{i}" class="bar" [style.width.px]="bar.number * 11" [style.height.px]="5" [style.background-color]="bar.color"></div>
             <div class="separator"></div>
+            <div id="bar{i}" class="bar" [style.width.%]="bar.number" [style.height.px]="5" [style.background-color]="bar.color"></div>
         </div>
     </div>
 </div>

@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { SortingComponent } from './sorting/sorting.component';
 import { HeaderComponent } from './shell/header/header.component';
 import { BarComponent } from './bar/bar.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSliderModule } from '@angular/material/slider';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { BarComponent } from './bar/bar.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatSliderModule
   ],
   providers: [],
   bootstrap: [AppComponent]
