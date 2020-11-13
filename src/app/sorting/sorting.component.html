@@ -6,16 +6,22 @@
                     <h2 class="logo-text">AlgoViz</h2>
                 </div>
             </div>
-            <div class="size-container">
-                <div class="size">Size</div>
+            <div class="size_speed-container">
+                <div class="size-text">Size</div>
                 <mat-slider (input)="onSizeChange($event)" class="slider" thumbLabel [displayWith]="formatLabel" min="10" max="100" value="30"></mat-slider>
+                <div class="speed-text">Speed</div>
+                <mat-slider (input)="onSpeedChange($event)" class="slider" [displayWith]="formatLabel" min="200" max="400" value="75"></mat-slider>
             </div>
-            <div class="speed-container">
-                <div class="speed">Speed</div>
-                <mat-slider (input)="onSpeedChange($event)" class="slider" [displayWith]="formatLabel" min="200" max="400"></mat-slider>
+            <div class="sorting-algo-container">
+                <div class="sort" (click)="insertionSort(0, 0)">Insertion Sort</div>
+                <div class="sort" (click)="selectionSort(0, 1, 0)">Selection Sort</div>
+                <div class="sort" (click)="bubbleSort(0, 0)">Bubble Sort</div>
+                <div class="sort" (click)="quickSort(0, size - 1)">Quick Sort</div>
+                <div class="sort" (click)="mergeSort(size, 0, 1)">Merge Sort</div>
             </div>
+            <div class="sorting-algo-container-small">Sorting Method</div>
             <div class="list_elements-container">
-                <div class="list_elements" (click)="changeList()">Change List</div>
+                <div class="list_elements" (click)="changeList()">Reset</div>
             </div>
         </div>
     </nav>
@@ -28,8 +34,3 @@
         </div>
     </div>
 </div>
-<button class="button" (click)="insertionSort(0, 0)">Insertion Sort</button>
-<button class="button" (click)="selectionSort(0, 1, 0)">Selection Sort</button>
-<button class="button" (click)="bubbleSort(0, 0)">Bubble Sort</button>
-<button class="button" (click)="quickSort(0, size - 1)">Quick Sort</button>
-<button class="button" (click)="mergeSort(size, 0, 1)">Merge Sort</button>
