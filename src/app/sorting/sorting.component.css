@@ -1,3 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans');
+
+.header-container {
+    background-color: #1E1F22;
+}
 .contents-flex-box {
     display: flex;
     margin: auto;
@@ -5,6 +10,12 @@
 }
 .logo {
     padding-left: 5px;
+}
+.logo-text {
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 700;
+    font-style: italic;
+    color: #EBE7D9;
 }
 .size_speed-container {
     display: flex;
@@ -14,6 +25,9 @@
 .size-text, .speed-text {
     margin: auto;
     margin-left: 5px;
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 400;
+    color: #EBE7D9;
 }
 .speed-container {
     display: flex;
@@ -25,15 +39,24 @@
     padding-top: 20px;
     padding-bottom: 20px;
 }
+.list_elements, .sort {
+    font-family: 'Work Sans', sans-serif;
+    color: #EBE7D9;
+}
+.reset-disabled {
+    pointer-events: none;
+}
 mat-slider {
-    margin-left: 10px;
+    margin-left: 5px;
+}
+.size_speed-disabled {
+    pointer-events: none;
 }
 .sorting-algo-container {
     display: flex;
 }
-.sorting-algo-container-small {
-    display: none;
-    margin: auto;
+.sorting-disabled {
+    pointer-events: none;
 }
 .sort {
     margin: auto;

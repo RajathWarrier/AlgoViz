@@ -1,3 +1,4 @@
+import { ThrowStmt } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { MatSliderChange } from '@angular/material/slider';
 import { BarComponent } from '../bar/bar.component';
@@ -13,11 +14,15 @@ export class SortingComponent implements OnInit {
   size = 30;
   speed = 75;
   barList: BarComponent[];
+  sorting: boolean;
+  sorted: boolean;
 
   constructor() { }
 
   ngOnInit() {
     this.changeList();
+    this.sorting = false;
+    this.sorted = false;
   }
 
   changeList() {
@@ -26,6 +31,7 @@ export class SortingComponent implements OnInit {
       const barComponent = new BarComponent(Math.floor(Math.random() * (this.size + 1)));
       this.barList.push(barComponent);
     }
+    this.sorted = false;
   }
 
   formatLabel(value: number) {
@@ -43,6 +49,14 @@ export class SortingComponent implements OnInit {
     this.speed = 400 - event.value;
   }
 
+  isSorted(): boolean {
+    for (let i = 0; i < this.size - 1; i++) {
+      if (this.barList[i].number > this.barList[i + 1].number) {
+        return false;
+      }
+    }
+    return true;
+  }
   // ALL SORTING ALGORITHMS
 
   // Insertion Sort
@@ -50,8 +64,11 @@ export class SortingComponent implements OnInit {
   insertionSort(i: number, j: number) {
     if (i >= this.size) {
       this.barList[i - 1].color = '#55e9bc';
+      this.sorting = false;
+      this.sorted = true;
       return;
     }
+    this.sorting = true;
     if (i === 1) {
       this.barList[0].color = '#55e9bc';
     }
@@ -79,8 +96,11 @@ export class SortingComponent implements OnInit {
   selectionSort(i: number, j: number, smallest: number) {
     if (i >= this.size - 1) {
       this.barList[i].color = '#55e9bc';
+      this.sorting = false;
+      this.sorted = true;
       return;
     }
+    this.sorting = true;
     this.barList[j - 1].color = '#e97171';
     this.barList[smallest].color = '#776d8a';
     if (j >= this.size) {
@@ -104,8 +124,11 @@ export class SortingComponent implements OnInit {
   bubbleSort(i: number, j: number) {
     if (i >= this.size - 1) {
       this.barList[0].color = '#55e9bc';
+      this.sorting = false;
+      this.sorted = true;
       return;
     }
+    this.sorting = true;
     if (j >= this.size - i - 1) {
       this.barList[j].color = '#55e9bc';
       setTimeout(() => this.bubbleSort(++i, 0), this.speed);
@@ -127,8 +150,10 @@ export class SortingComponent implements OnInit {
   quickSort(i: number, k: number) {
     if (i >= k) {
       this.barList[i].color = '#55e9bc';
+      this.sorting = false;
       return;
     }
+    this.sorting = true;
     let l = i;
     let h = k;
     const midPoint: number = Math.floor((l + h) / 2);
@@ -206,8 +231,11 @@ export class SortingComponent implements OnInit {
   mergeSort(n: number, leftStart: number, currSize: number) {
     if (currSize > n - 1) {
       this.barList[n - 1].color = '#55e9bc';
+      this.sorting = false;
+      this.sorted = true;
       return;
     }
+    this.sorting = true;
     if (leftStart >= n - 1) {
       setTimeout(() => this.mergeSort(n, 0, 2 * currSize), this.speed);
     } else {
