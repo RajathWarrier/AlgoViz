@@ -134,11 +134,11 @@ export class SortingComponent implements OnInit {
       setTimeout(() => this.bubbleSort(++i, 0), this.speed);
     } else {
       this.barList[j].color = '#e97171';
+      this.barList[j + 1].color = '#3498db';
       if (this.barList[j].number > this.barList[j + 1].number) {
         const temp  = this.barList[j].number;
         this.barList[j].number = this.barList[j + 1].number;
         this.barList[j + 1].number = temp;
-        this.barList[j + 1].color = '#3498db';
       }
       setTimeout(() => this.bubbleSort(i, ++j), this.speed);
     }
