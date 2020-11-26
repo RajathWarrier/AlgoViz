@@ -46,7 +46,7 @@ export class SortingComponent implements OnInit {
 
   onSpeedChange(event: MatSliderChange) {
     console.log(`Speed changed to: ${400 - event.value}`);
-    this.speed = 400 - event.value;
+    this.speed = (400 - event.value) / 10;
   }
 
   isSorted(): boolean {
@@ -180,8 +180,8 @@ export class SortingComponent implements OnInit {
     this.barList[h].color = '#55e9bc';
     const j = h;
 
-    setTimeout(() => this.quickSort(i, j), this.speed);
-    setTimeout(() => this.quickSort(j + 1, k), this.speed);
+    setTimeout(() => this.quickSort(i, j), this.speed * 10);
+    setTimeout(() => this.quickSort(j + 1, k), this.speed * 10);
   }
 
   // Merge Sort
@@ -237,12 +237,12 @@ export class SortingComponent implements OnInit {
     }
     this.sorting = true;
     if (leftStart >= n - 1) {
-      setTimeout(() => this.mergeSort(n, 0, 2 * currSize), this.speed);
+      setTimeout(() => this.mergeSort(n, 0, 2 * currSize), this.speed * 5);
     } else {
       const mid = Math.min(leftStart + currSize - 1, n - 1);
       const rightEnd = Math.min(leftStart + 2 * currSize - 1, n - 1);
       this.merge(leftStart, mid, rightEnd);
-      setTimeout(() => this.mergeSort(n, leftStart + 2 * currSize, currSize), this.speed);
+      setTimeout(() => this.mergeSort(n, leftStart + 2 * currSize, currSize), this.speed * 5);
     }
   }
 
