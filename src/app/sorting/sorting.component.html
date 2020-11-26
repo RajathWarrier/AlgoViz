@@ -3,21 +3,25 @@
         <div class="contents-flex-box">
             <div class="logo-container">
                 <div class="logo">
-                    <h2 class="logo-text">// ALGOVIZ</h2>
+                    <h2 class="logo-text">ALGOVIZ</h2>
                 </div>
             </div>
             <div class="size_speed-container" [ngClass]="{'size_speed-disabled':sorting}">
-                <div class="size-text">Size</div>
-                <mat-slider class="slider" (input)="onSizeChange($event)" class="slider" thumbLabel [displayWith]="formatLabel" min="10" max="100" value="30"></mat-slider>
-                <div class="speed-text">Speed</div>
-                <mat-slider (input)="onSpeedChange($event)" class="slider" [displayWith]="formatLabel" min="200" max="400" value="75"></mat-slider>
+                <div class="size-container">
+                    <p class="size-text">Size</p>
+                    <mat-slider class="slider" (input)="onSizeChange($event)" class="slider" thumbLabel [displayWith]="formatLabel" min="10" max="100" value="30"></mat-slider>
+                </div>
+                <div class="speed-container">
+                    <div class="speed-text">Speed</div>
+                    <mat-slider (input)="onSpeedChange($event)" class="slider" [displayWith]="formatLabel" min="200" max="400" value="75"></mat-slider>
+                </div>
             </div>
             <div class="sorting-algo-container" [ngClass]="{'sorting-disabled':sorting || isSorted()}">
-                <div class="sort" (click)="insertionSort(0, 0)">Insertion Sort</div>
-                <div class="sort" (click)="selectionSort(0, 1, 0)">Selection Sort</div>
-                <div class="sort" (click)="bubbleSort(0, 0)">Bubble Sort</div>
-                <div class="sort" (click)="quickSort(0, size - 1)">Quick Sort</div>
-                <div class="sort" (click)="mergeSort(size, 0, 1)">Merge Sort</div>
+                <div class="sort ins-sort" (click)="insertionSort(0, 0)">Insertion Sort</div>
+                <div class="sort sel-sort" (click)="selectionSort(0, 1, 0)">Selection Sort</div>
+                <div class="sort bub-sort" (click)="bubbleSort(0, 0)">Bubble Sort</div>
+                <div class="sort qui-sort" (click)="quickSort(0, size - 1)">Quick Sort</div>
+                <div class="sort mer-sort" (click)="mergeSort(size, 0, 1)">Merge Sort</div>
             </div>
             <div class="list_elements-container">
                 <div class="list_elements" (click)="changeList()" [ngClass]="{'reset-disabled':sorting}">Reset</div>

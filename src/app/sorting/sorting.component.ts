@@ -108,7 +108,7 @@ export class SortingComponent implements OnInit {
       this.barList[smallest].number = this.barList[i].number;
       this.barList[i].number = temp;
       this.barList[i].color = '#55e9bc';
-      // this.barList[smallest].color = '#e97171';
+      this.barList[smallest].color = (i !== smallest) ? '#e97171' : '#55e9bc';
       setTimeout(() => this.selectionSort(++i, i + 1, i), this.speed);
     } else {
       this.barList[j].color = '#3498db';
