@@ -28,7 +28,8 @@ export class SortingComponent implements OnInit {
   changeList() {
     this.barList = [];
     for (let i = 0; i < this.size; i++) {
-      const barComponent = new BarComponent(Math.floor(Math.random() * (this.size + 1)));
+      const barComponent = new BarComponent();
+      barComponent.number = Math.floor(Math.random() * (this.size + 1));
       this.barList.push(barComponent);
     }
     this.sorted = false;

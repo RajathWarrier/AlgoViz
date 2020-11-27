@@ -8,14 +8,10 @@ import { Component, OnInit } from '@angular/core';
 export class BarComponent implements OnInit {
 
   number = 0;
-  success: boolean;
-  color: string;
+  success = false;
+  color = '#e97171';
 
-  constructor(value: number) {
-    this.number = value;
-    this.success = false;
-    this.color = '#e97171';
-  }
+  constructor() { }
 
   ngOnInit() {
   }
